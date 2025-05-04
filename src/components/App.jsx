@@ -29,6 +29,8 @@ export function App() {
             <FormAddFriend />
             <Button>Add Friend</Button>
          </div>
+
+         <FormSplitBill />
       </div>
    );
 }
@@ -65,8 +67,6 @@ function Friend({ friend }) {
          {friend.balance === 0 && <p>You and {friend.name} are even</p>}
 
          <Button>Select</Button>
-
-         {/* form-add-friend */}
       </li>
    );
 }
@@ -78,13 +78,38 @@ function Button({ children }) {
 function FormAddFriend() {
    return (
       <form className="form-add-friend">
-         <label>Friend Name</label>
+         <label>👫 Friend Name</label>
          <input type="text" />
 
-         <label>Image URL</label>
+         <label>🌄 Image URL</label>
          <input type="text" />
 
          <Button>Add</Button>
+      </form>
+   );
+}
+
+function FormSplitBill() {
+   return (
+      <form className="form-split-bill">
+         <h2>Split bill with X</h2>
+
+         <label>💰 Bill value</label>
+         <input type="text" />
+
+         <label>🧍Your expense</label>
+         <input type="text" />
+
+         <label>👫 X's expense</label>
+         <input type="text" disabled />
+
+         <label>🤑 Who is paying the bill ?</label>
+         <select>
+            <option value="user">You</option>
+            <option value="firend">X</option>
+         </select>
+
+         <Button>Split</Button>
       </form>
    );
 }
